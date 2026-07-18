@@ -4,7 +4,7 @@ const AppHeader = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
-            Navbar
+            BusApp
           </a>
           <button
             className="navbar-toggler"
@@ -26,12 +26,12 @@ const AppHeader = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Features
+                  Help
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">
-                  Pricing
+                  Feedback
                 </a>
               </li>
               <li className="nav-item">

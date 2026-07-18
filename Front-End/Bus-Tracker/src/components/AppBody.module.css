@@ -5,26 +5,39 @@
   justify-content: space-evenly;
   background-color: #54fd72;
   margin: 49px;
-  border-radius: 130px 35px 78px 50px;
+  /* border-radius: 130px 35px 78px 50px; */
 }
 
 .leftSection {
-  background-color: chartreuse;
 }
 
 .rightSection {
-  background-color: chocolate;
+  margin: 0px 0px 0px 95px;
 }
 
-.box {
+.window {
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center;
+  font-weight: 500;
   background-color: #d31010;
   height: 100px;
   width: 150px;
   position: relative;
-  top: 135px;
-  text-align: center;
+  top: 85px;
   margin: 5px;
   padding: 4px;
   border: 6px solid;
   border-radius: 20px;
+}
+
+.tyre {
+  background-color: black;
+  height: 120px;
+  width: 120px;
+  position: relative;
+  top: 209px;
+  margin: 29px;
+  border: 9px solid white;
+  border-radius: 82px;
 }
