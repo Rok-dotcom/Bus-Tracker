@@ -1,7 +1,11 @@
+import AppHeader from "./components/AppHeader";
+import AppBody from "./components/AppBody";
+
 function App() {
   return (
     <>
-      <h1>hello0</h1>
+      <AppHeader></AppHeader>
+      <AppBody></AppBody>
     </>
   );
 }

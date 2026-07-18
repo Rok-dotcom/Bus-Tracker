@@ -1,0 +1,30 @@
+.sectionFirst {
+  height: 400px;
+  min-width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #54fd72;
+  margin: 49px;
+  border-radius: 130px 35px 78px 50px;
+}
+
+.leftSection {
+  background-color: chartreuse;
+}
+
+.rightSection {
+  background-color: chocolate;
+}
+
+.box {
+  background-color: #d31010;
+  height: 100px;
+  width: 150px;
+  position: relative;
+  top: 135px;
+  text-align: center;
+  margin: 5px;
+  padding: 4px;
+  border: 6px solid;
+  border-radius: 20px;
+}
