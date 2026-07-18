@@ -1,0 +1,16 @@
+.smallContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 2px solid;
+  border-radius: 40px;
+  margin: 8px;
+}
+
+.leftDiv {
+  width: 30%;
+}
+
+.rightDiv {
+  width: 70%;
+}
