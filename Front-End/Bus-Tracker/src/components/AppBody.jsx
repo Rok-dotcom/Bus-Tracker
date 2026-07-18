@@ -7,7 +7,7 @@ const AppBody = () => {
       <h1>What is your current position ?</h1>
       <section className={styles.sectionFirst}>
         <section className={styles.leftSection}>
-          <Link to="/InBus" className={styles.windowLink}>
+          <Link to="/InputForm" className={styles.windowLink}>
             <div className={styles.window}>In Bus</div>
           </Link>
 

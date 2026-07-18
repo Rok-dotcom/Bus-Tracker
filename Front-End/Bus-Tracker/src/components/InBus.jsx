@@ -1,8 +1,14 @@
 import SmallContainer from "./SmallContainer.jsx";
 import Container from "./Container";
+
 const InBus = () => {
+  // these below value Title and all are hardcoded
+  // make it user input
+  //
   return (
     <>
+      {/* should add forms in it to take input from the user
+       */}
       <Container>
         <SmallContainer title="Route : ">Pune to Solapur</SmallContainer>
 

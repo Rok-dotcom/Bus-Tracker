@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import AppHeader from "./components/AppHeader";
 import AppBody from "./components/AppBody";
-import InBus from "./components/InBus";
+import IntputForm from "./components/InputForm";
 import Waiting from "./components/Waiting";
+import InBus from "./components/InBus";
 
 function App() {
   return (
@@ -11,8 +12,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<AppBody />} />
-        <Route path="/InBus" element={<InBus />} />
+        <Route path="/InputForm" element={<IntputForm />} />
         <Route path="/Waiting" element={<Waiting />} />
+        <Route path="/InBus" element={<InBus />} />
       </Routes>
     </>
   );
