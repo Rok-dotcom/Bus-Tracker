@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./AppBody.module.css";
 
 const AppBody = () => {
@@ -6,12 +7,18 @@ const AppBody = () => {
       <h1>What is your current position ?</h1>
       <section className={styles.sectionFirst}>
         <section className={styles.leftSection}>
-          <div className={styles.window}>In Bus</div>
+          <Link to="/InBus" className={styles.windowLink}>
+            <div className={styles.window}>In Bus</div>
+          </Link>
+
           {/* <div className={styles.tyre}></div> */}
         </section>
 
         <section className={styles.rightSection}>
-          <div className={styles.window}>waiting</div>
+          <Link to="/Waiting" className={styles.windowLink}>
+            <div className={styles.window}>waiting</div>
+          </Link>
+
           {/* <div className={styles.tyre}></div> */}
         </section>
       </section>
