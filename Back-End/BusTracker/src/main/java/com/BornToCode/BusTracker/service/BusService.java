@@ -16,4 +16,9 @@ public class BusService {
     public List<Bus> getBusInfo() {
         return busRepo.findAll();
     }
+
+    public void addBus(Bus bus) {
+        busRepo.save(bus);
+    }
+
 }
