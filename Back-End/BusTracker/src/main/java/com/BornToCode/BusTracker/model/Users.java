@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 @Data
 @NoArgsConstructor
-public class User{
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class User{
     private String userName;
     private String passWord;
 
-    public User(int id, String userName, String passWord) {
+    public Users(int id, String userName, String passWord) {
         this.id = id;
         this.userName = userName;
         this.passWord = passWord;
