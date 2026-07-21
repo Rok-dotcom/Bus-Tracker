@@ -3,14 +3,12 @@ package com.BornToCode.BusTracker.controller;
 import com.BornToCode.BusTracker.model.Bus;
 import com.BornToCode.BusTracker.service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/bus")
 public class BusInfoController {
 
     @Autowired
@@ -22,8 +20,22 @@ public class BusInfoController {
         return busService.getBusInfo(); // here I have to send by route but now using id
     }
 
+    // it will add the bus
     @PostMapping("/addBus")
     public void addBus(@RequestBody Bus bus){
         busService.addBus(bus);
     }
+
+    // it updates the bus details
+    @PutMapping("/updateBusInfo/{id}")
+    public void updateBusInfo(@RequestBody Bus bus,@PathVariable int id){
+        busService.updateBusInfoById(bus,id);
+    }
+
+    // Delete the bus
+    @DeleteMapping("/deleteBus/{id}")
+    public void deleteBus(@PathVariable int id){
+        busService.deleteBus(id);
+    }
+
 }

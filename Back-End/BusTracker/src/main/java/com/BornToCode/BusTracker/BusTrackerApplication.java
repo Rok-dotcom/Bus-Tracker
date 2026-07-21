@@ -9,4 +9,5 @@ public class BusTrackerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BusTrackerApplication.class, args);
 	}
+
 }

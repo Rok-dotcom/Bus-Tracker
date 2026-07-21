@@ -9,13 +9,9 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 ///  This is one time setup so do this. 20 July 2026
@@ -33,13 +29,18 @@ public class SecurityConfig {
         ///  this is using builder and lambda
         return http
                 .csrf(customizer -> customizer.disable())
-                .authorizeHttpRequests(request -> request.anyRequest().authenticated())
+                .authorizeHttpRequests(request -> request
+                        .requestMatchers("/user/register").permitAll()
+                        .requestMatchers("/login").permitAll()
+                        .anyRequest().authenticated())
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .build();
 
-        //        http.formLogin(Customizer.withDefaults());      // gives default form for login
+//        http.formLogin(Customizer.withDefaults());
+
+        //              // gives default form for login
 
         /// This below code can be reduced by using builder
 /*
@@ -50,13 +51,14 @@ public class SecurityConfig {
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));  // it don't store the session id on browser every time new authentication
         return http.build(); // hey spring now build security according to my configuration
  */
+
     }
 
 
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);
-        provider.setPasswordEncoder(passwordEncoder());  // passwordEncoder()
+        provider.setPasswordEncoder(new BCryptPasswordEncoder(12));  // passwordEncoder()
         return provider;
     }
 
@@ -84,7 +86,7 @@ public class SecurityConfig {
                 .withDefaultPasswordEncoder()
                 .username("kunal")
                 .password("k@123")
-                .roles("dalla")
+                .roles("Engineer")
                 .build();
 
         return new InMemoryUserDetailsManager(user1,user2);
