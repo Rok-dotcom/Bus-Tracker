@@ -14,7 +14,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
     // user get register
     @PostMapping("/register")
     public Users register(@RequestBody Users user){

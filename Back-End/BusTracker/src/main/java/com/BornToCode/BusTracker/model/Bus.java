@@ -17,6 +17,8 @@ public class Bus {
     private String busNo;
     private String currentlocation;
     private String msg;
+    private String postTime;
+
 
 
 }

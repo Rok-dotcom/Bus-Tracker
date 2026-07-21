@@ -25,7 +25,7 @@ public class BusService {
 
     // Adds bus
     public void addBus(Bus bus) {
-        bus.setMsg(bus.getMsg()+time);
+        bus.setPostTime(time+"");
         busRepo.save(bus);
     }
 
@@ -35,9 +35,11 @@ public class BusService {
                 .orElseThrow(() -> new RuntimeException("Bus not exist"));
 
         existingBus.setRoute(bus.getRoute());
-        existingBus.setBusNo(bus.getRoute());
+        existingBus.setBusNo(bus.getBusNo());
         existingBus.setCurrentlocation(bus.getCurrentlocation());
-        existingBus.setMsg(bus.getMsg()+time);
+        existingBus.setMsg(bus.getMsg());
+        existingBus.setPostTime(time+"");
+        busRepo.save(existingBus);
     }
 
     // deletes bus
