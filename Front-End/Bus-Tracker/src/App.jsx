@@ -4,11 +4,15 @@ import AppBody from "./components/AppBody";
 import IntputForm from "./components/InputForm";
 import Waiting from "./components/Waiting";
 import InBus from "./components/InBus";
+import NewHeader from "./components/NewHeader";
+import UserGuide from "./components/UserGuide";
+import AppFooter from "./components/AppFooter";
 
 function App() {
   return (
     <>
-      <AppHeader />
+      <NewHeader></NewHeader>
+      <UserGuide></UserGuide>
 
       <Routes>
         <Route path="/" element={<AppBody />} />
@@ -16,6 +20,8 @@ function App() {
         <Route path="/Waiting" element={<Waiting />} />
         <Route path="/InBus" element={<InBus />} />
       </Routes>
+
+      <AppFooter></AppFooter>
     </>
   );
 }

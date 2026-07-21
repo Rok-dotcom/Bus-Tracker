@@ -1,7 +1,11 @@
 const AppHeader = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav
+        className="navbar navbar-expand-lg bg-body-tertiary"
+        styles="background-color: #e3f2fd;"
+        data-bs-theme="light"
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             BusApp
