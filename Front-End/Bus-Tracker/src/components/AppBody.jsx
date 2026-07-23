@@ -7,7 +7,7 @@ const AppBody = () => {
       <h1>How would you like to use BusTracker today?</h1>
       <section className={styles.sectionFirst}>
         <section className={styles.leftSection}>
-          <Link to="/InputForm" className={styles.windowLink}>
+          <Link to="/InBus" className={styles.windowLink}>
             <div className={styles.window}>📤 Share Bus Update</div>
           </Link>
 

@@ -1,32 +1,33 @@
-import styles from "./Waiting.module.css";
+import "./Waiting.css";
 import { Link } from "react-router-dom";
-const Waiting = () => {
+
+function Waiting() {
   return (
-    /*
-    write here logic of if route is available which is entered by the InBus person then show the InBus page otherwise not found
-    e.g. 
-    boolean search = searchedByTheWatining person;
-    if(route == search){
-        <Link to="./InBus"><Link/>
-    }else{
-        <h1> Buses are not available on this route<h1>
-        }
-
-*/
     <>
-      <h1>Add content for the Waiting user</h1>
-      <p>
-        if Bus is available on this route which is entered by user then show
-        InBus page otherwise Buses are not available
-      </p>
+      <div className="waiting-container">
+        <div className="search-card">
+          <Link to="/BusDetails">
+            <button className="search-btn">🔍 Show All Buses</button>
+          </Link>
+        </div>
+      </div>
 
-      <input type="text" placeholder="search bus"></input>
+      <div className="waiting-container">
+        <div className="search-card">
+          <h2>Find Your Bus</h2>
+          <p>Enter your boarding and destination locations.</p>
 
-      <Link to="/InBus">
-        <button className={styles.btn}>Search</button>
-      </Link>
+          <input type="text" placeholder="📍 From" className="location-input" />
+
+          <button className="swap-btn">⇅</button>
+
+          <input type="text" placeholder="📍 To" className="location-input" />
+
+          <button className="search-btn">🔍 Search Buses</button>
+        </div>
+      </div>
     </>
   );
-};
+}
 
 export default Waiting;

@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.inbus-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f7fb;
+  padding: 30px;
+}
+
+.form-card {
+  width: 460px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.form-card h2 {
+  color: #1e3a8a;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.form-card p {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+.route-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location-input,
+.form-input,
+.message-box {
+  width: 100%;
+  padding: 15px 18px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  outline: none;
+  font-size: 16px;
+  transition: 0.3s;
+  margin-bottom: 18px;
+}
+
+.location-input:focus,
+.form-input:focus,
+.message-box:focus {
+  border-color: #2563eb;
+}
+
+.swap-btn {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  margin-bottom: 18px;
+  transition: 0.3s;
+}
+
+.swap-btn:hover {
+  transform: rotate(180deg);
+}
+
+.message-box {
+  resize: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.delete-btn {
+  background: red;
+}
+
+.delete-btn:hover {
+  background-color: rgb(128, 14, 14);
+}
+
+.submit-btn:hover {
+  background: #1d4ed8;
+}

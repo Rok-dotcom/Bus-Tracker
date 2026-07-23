@@ -7,11 +7,11 @@ import InBus from "./components/InBus";
 import NewHeader from "./components/NewHeader";
 import UserGuide from "./components/UserGuide";
 import AppFooter from "./components/AppFooter";
+import BusInfo from "./components/BusInfo";
 
 function Home() {
   return (
     <>
-      <NewHeader />
       <UserGuide />
       <AppBody />
       <AppFooter />
@@ -22,11 +22,13 @@ function Home() {
 function App() {
   return (
     <>
+      <NewHeader />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/InputForm" element={<InputForm />} />
         <Route path="/Waiting" element={<Waiting />} />
         <Route path="/InBus" element={<InBus />} />
+        <Route path="/BusDetails" element={<BusInfo />} />
       </Routes>
     </>
   );
