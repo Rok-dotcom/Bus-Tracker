@@ -1,53 +1,53 @@
-import "./BusInfo.css";
-import { useState } from "react";
+import "./BusStatus.css";
 import { useLocation } from "react-router-dom";
 
-const BusInfo = () => {
+const BusStatus = () => {
   const location = useLocation();
-  const bus1 = location.state;
-  // console.log(buses);
+  const buses = location.state || [];
 
-  if (bus1 == null) {
-    console.log("obj is null");
-    return <h1>bus obj is null</h1>;
+  if (buses.length === 0) {
+    return <h2>No bus data found.</h2>;
   }
-
+  // undo
   return (
-    <>
-      <div className="busInfo-container">
-        {/* map function */}
-        {/* {buses.map((bus1) => ( */}
+    <div className="busInfo-container">
+      {buses.map((bus) => (
         <div className="bus-card">
           <h3>Bus Information</h3>
 
           {/* Route */}
           <div className="busInfo-card">
             <span>Route</span>
-            <p>{bus1.route}</p>
+            <p>{bus.route}</p>
           </div>
 
           {/* Bus No */}
           <div className="busInfo-card">
             <span>Bus No.</span>
-            <p>{bus1.busNo}</p>
+            <p>{bus.busNo}</p>
           </div>
 
           {/* Current Location */}
           <div className="busInfo-card">
             <span>Current Location</span>
-            <p>{bus1.currentlocation}</p>
+            <p>{bus.currentlocation}</p>
           </div>
 
           {/* Message */}
           <div className="busInfo-card">
             <span>Message</span>
-            <p>{bus1.msg}</p>
+            <p>{bus.msg}</p>
+          </div>
+
+          {/* Posting Time */}
+          <div className="busInfo-card">
+            <span>Post time</span>
+            <p>{bus.postTime}</p>
           </div>
         </div>
-        {/* ))} */}
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 
-export default BusInfo;
+export default BusStatus;

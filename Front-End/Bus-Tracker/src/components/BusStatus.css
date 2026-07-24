@@ -1,0 +1,97 @@
+/* Full Page */
+.busInfo-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  background: linear-gradient(135deg, #eef2f7, #d9e7ff);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Main Card */
+.bus-card {
+  width: 100%;
+  margin: 10px;
+  max-width: 350px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.bus-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading */
+.bus-card h3 {
+  text-align: center;
+  color: #1f3c88;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #4f8cff;
+  display: inline-block;
+  padding-bottom: 8px;
+  width: 100%;
+}
+
+/* Information Cards */
+.busInfo-card {
+  background: #f7faff;
+  border-left: 6px solid #4f8cff;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.busInfo-card:hover {
+  background: #4f8cff;
+  color: white;
+  transform: translateX(8px);
+}
+.busInfo-card span {
+  font-weight: 700;
+  color: #1f3c88;
+}
+
+.busInfo-card p {
+  margin: 0;
+  color: #444;
+}
+
+.busInfo-card:hover span,
+.busInfo-card:hover p {
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .bus-card {
+    padding: 20px;
+  }
+
+  .bus-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .busInfo-card {
+    font-size: 0.95rem;
+    padding: 14px;
+  }
+}

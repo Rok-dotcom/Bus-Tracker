@@ -8,6 +8,7 @@ import NewHeader from "./components/NewHeader";
 import UserGuide from "./components/UserGuide";
 import AppFooter from "./components/AppFooter";
 import BusInfo from "./components/BusInfo";
+import BusStatus from "./components/BusStatus";
 
 function Home() {
   return (
@@ -28,7 +29,8 @@ function App() {
         <Route path="/InputForm" element={<InputForm />} />
         <Route path="/Waiting" element={<Waiting />} />
         <Route path="/InBus" element={<InBus />} />
-        <Route path="/BusDetails" element={<BusInfo />} />
+        <Route path="/BusInfo" element={<BusInfo />} />
+        <Route path="/BusStatus" element={<BusStatus />} />
       </Routes>
     </>
   );

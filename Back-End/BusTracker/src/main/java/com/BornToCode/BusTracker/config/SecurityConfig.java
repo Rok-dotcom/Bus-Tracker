@@ -28,11 +28,12 @@ public class SecurityConfig {
 
         ///  this is using builder and lambda
         return http
+                .cors(Customizer.withDefaults())
                 .csrf(customizer -> customizer.disable())
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/user/register").permitAll()
                         .requestMatchers("/login").permitAll()
-                        .anyRequest().authenticated())
+                        .anyRequest().permitAll())
                 .formLogin(Customizer.withDefaults())
                 .httpBasic(Customizer.withDefaults())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

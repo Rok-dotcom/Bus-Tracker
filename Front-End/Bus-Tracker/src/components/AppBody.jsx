@@ -4,7 +4,6 @@ import styles from "./AppBody.module.css";
 const AppBody = () => {
   return (
     <>
-      <h1>How would you like to use BusTracker today?</h1>
       <section className={styles.sectionFirst}>
         <section className={styles.leftSection}>
           <Link to="/InBus" className={styles.windowLink}>

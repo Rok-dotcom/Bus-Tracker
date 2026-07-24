@@ -24,9 +24,9 @@ public class BusService {
     }
 
     // Adds bus
-    public void addBus(Bus bus) {
+    public Bus addBus(Bus bus) {
         bus.setPostTime(time+"");
-        busRepo.save(bus);
+        return busRepo.save(bus);
     }
 
     // updates bus
@@ -45,5 +45,15 @@ public class BusService {
     // deletes bus
     public void deleteBus(int id) {
         busRepo.deleteById(id);
+    }
+
+    // return bus by its id
+    public Bus getBusById(int id) {
+        return busRepo.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+    }
+
+    public List<Bus> searchRoute(String keyword) {
+        return busRepo.findByRoute(keyword);
     }
 }

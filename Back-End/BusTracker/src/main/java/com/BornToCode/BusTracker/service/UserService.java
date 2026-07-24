@@ -55,6 +55,7 @@ public class UserService {
                 existingUser.setPassWord(encoder.encode(user.getPassWord()));
             }
         }
+
         // existingUser.setId(user.getId());                // will it generate id by own or not: It will not conflict with @GeneratedValue with PUT http method
            existingUser.setUserName(user.getUserName());
         // existingUser.setPassWord(user.getPassWord());        // will it store in hashcode or original password

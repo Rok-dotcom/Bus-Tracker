@@ -13,12 +13,12 @@ h1 {
 }
 
 .sectionFirst {
-  min-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 80px;
   padding: 20px;
+  margin-bottom: 70px;
 }
 
 .leftSection,
