@@ -1,6 +1,7 @@
 import "./BusInfo.css";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const BusInfo = () => {
   const location = useLocation();
@@ -11,6 +12,17 @@ const BusInfo = () => {
     console.log("obj is null");
     return <h1>bus obj is null</h1>;
   }
+
+  const navigate = useNavigate();
+
+  const handleOnClick = () => {
+    console.log("edit btn get clicked");
+
+    navigate("/UpdateBusDetails", {
+      state: bus1,
+    });
+    // pass bus obj to updateBusDetails for previous values
+  };
 
   return (
     <>
@@ -43,6 +55,10 @@ const BusInfo = () => {
             <span>Message</span>
             <p>{bus1.msg}</p>
           </div>
+
+          <button className="submit-btn" onClick={handleOnClick}>
+            Edit
+          </button>
         </div>
         {/* ))} */}
       </div>

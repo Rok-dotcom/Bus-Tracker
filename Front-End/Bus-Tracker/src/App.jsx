@@ -9,6 +9,7 @@ import UserGuide from "./components/UserGuide";
 import AppFooter from "./components/AppFooter";
 import BusInfo from "./components/BusInfo";
 import BusStatus from "./components/BusStatus";
+import UpdateBusDetails from "./components/UpdateBusDetails";
 
 function Home() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/InBus" element={<InBus />} />
         <Route path="/BusInfo" element={<BusInfo />} />
         <Route path="/BusStatus" element={<BusStatus />} />
+        <Route path="/UpdateBusDetails" element={<UpdateBusDetails />} />
       </Routes>
     </>
   );

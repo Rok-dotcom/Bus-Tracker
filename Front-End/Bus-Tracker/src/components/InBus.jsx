@@ -140,8 +140,6 @@ function InBus() {
             🚍 Share Bus Status
           </button>
           <h3>OR</h3>
-          <button className="submit-btn">🚍 Update Bus Status</button>
-          <h3>OR</h3>
           <button className="submit-btn delete-btn">
             🚍 Delete Bus Status
           </button>

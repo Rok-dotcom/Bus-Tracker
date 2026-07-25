@@ -1,18 +1,40 @@
+import axios from "axios";
 import "./BusStatus.css";
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const BusStatus = () => {
   const location = useLocation();
-  const buses = location.state || [];
+  const [buses, setBuses] = useState(location.state || []);
 
   if (buses.length === 0) {
-    return <h2>No bus data found.</h2>;
+    return <h2>No bus posted on this route!</h2>;
   }
+
+  // handle delete button
+  const handleDeleteBtn = async (e, id) => {
+    console.log("delete Button clicked");
+    e.preventDefault();
+
+    try {
+      await axios.delete(`http://localhost:8080/bus/deleteBus/${id}`);
+      console.log(`${id} : id no. bus deleted`);
+      setBuses((prev) => prev.filter((bus) => bus.id !== id));
+      // delete the bus also from page
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  function handleButton(key) {
+    console.log(key);
+  }
+
   // undo
   return (
     <div className="busInfo-container">
       {buses.map((bus) => (
-        <div className="bus-card">
+        <div className="bus-card" key={bus.id}>
           <h3>Bus Information</h3>
 
           {/* Route */}
@@ -44,6 +66,12 @@ const BusStatus = () => {
             <span>Post time</span>
             <p>{bus.postTime}</p>
           </div>
+          <button
+            className="delete-btn"
+            onClick={(e) => handleDeleteBtn(e, bus.id)}
+          >
+            Delete
+          </button>
         </div>
       ))}
     </div>
