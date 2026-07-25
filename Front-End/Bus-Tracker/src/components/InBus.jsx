@@ -1,8 +1,8 @@
 import "./InBus.css";
 import { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { addBus } from "../services/api";
 
 function InBus() {
   // useState
@@ -12,36 +12,16 @@ function InBus() {
   const [currentlocation, setcurrentLocation] = useState("");
   const [msg, setMsg] = useState("");
 
-  const navigate = useNavigate();
-  // const [show, setShow] = useState(Boolean);
-
-  // handleSubmit2
-  /*
-  const handleSubmit2 = (e) => {
-    e.preventDefault();
-    const route = From + " " + Dest;
-
-    console.log(route);
-    console.log(busNo);
-    console.log(currentLocation);
-    console.log(msg);
-
-    setFrom("");
-    setDest("");
-    setbusNo("");
-    setcurrentLocation("");
-    setMsg("");
-  };
-  */
+  const navigate = useNavigate(); // navigate obj
 
   // anxios function
   const handleSubmit = async (e) => {
     e.preventDefault(); // it prevents the default reload page function
 
-    const route = From + " " + Dest;
+    const route = From + " " + Dest; // merging from and dest
 
+    // creating object
     const bus = {
-      // creating object
       route,
       busNo,
       currentlocation,
@@ -50,10 +30,7 @@ function InBus() {
 
     // It may be return any error e.g. 401, 500, 400
     try {
-      const response = await axios.post(
-        "http://localhost:8080/bus/addBus",
-        bus,
-      );
+      const response = await addBus(bus);
 
       console.log(response.data); // printing data on console
 
@@ -138,10 +115,6 @@ function InBus() {
 
           <button className="submit-btn" onClick={handleSubmit}>
             🚍 Share Bus Status
-          </button>
-          <h3>OR</h3>
-          <button className="submit-btn delete-btn">
-            🚍 Delete Bus Status
           </button>
         </div>
       </div>

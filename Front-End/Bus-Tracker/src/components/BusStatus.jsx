@@ -1,7 +1,9 @@
-import axios from "axios";
 import "./BusStatus.css";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { deleteBusById } from "../services/api";
+
+import api from "../services/api";
 
 const BusStatus = () => {
   const location = useLocation();
@@ -13,22 +15,16 @@ const BusStatus = () => {
 
   // handle delete button
   const handleDeleteBtn = async (e, id) => {
-    console.log("delete Button clicked");
     e.preventDefault();
 
     try {
-      await axios.delete(`http://localhost:8080/bus/deleteBus/${id}`);
+      await deleteBusById(id);
       console.log(`${id} : id no. bus deleted`);
       setBuses((prev) => prev.filter((bus) => bus.id !== id));
-      // delete the bus also from page
     } catch (error) {
       console.log(error);
     }
   };
-
-  function handleButton(key) {
-    console.log(key);
-  }
 
   // undo
   return (

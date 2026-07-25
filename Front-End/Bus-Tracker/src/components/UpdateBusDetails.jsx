@@ -1,8 +1,8 @@
 import "./UpdateBusDetails";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDebugValue, useState } from "react";
-import axios from "axios";
 import { Navigate } from "react-router-dom";
+import { editBus } from "../services/api";
 
 // here edit the css of input box
 
@@ -33,7 +33,7 @@ const UpdateBusDetails = () => {
   const handleOnClick = async (e) => {
     e.preventDefault();
 
-    const updateBus = {
+    const updatedBus = {
       route,
       busNo,
       currentlocation,
@@ -46,10 +46,7 @@ const UpdateBusDetails = () => {
     console.log(msg);
 
     try {
-      const response = await axios.put(
-        `http://localhost:8080/bus/updateBusInfo/${id}`,
-        updateBus,
-      );
+      const response = await editBus(updatedBus, id);
       console.log(response.data);
       console.log("updated successfully");
       //   setUpdatedBus(response.data);
