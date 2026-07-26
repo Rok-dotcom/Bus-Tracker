@@ -48,9 +48,9 @@ public class UserService {
 
         ///  if is not changed then don't update the password
 
-        boolean isPassChange = encoder.matches(user.getPassWord(), existingUser.getPassWord());
 
         if(user.getPassWord() != null && !user.getPassWord().isBlank()){
+            boolean isPassChange = encoder.matches(user.getPassWord(), existingUser.getPassWord());
             if(!isPassChange){ // pass is changed so update the pass
                 existingUser.setPassWord(encoder.encode(user.getPassWord()));
             }

@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.List;
 
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Service
@@ -20,7 +18,6 @@ public class BusService {
 
     DateTimeFormatter formatter =
             DateTimeFormatter.ofPattern("hh:mm a , dd MMM yyyy");
-
 
 
     // shows all Buses

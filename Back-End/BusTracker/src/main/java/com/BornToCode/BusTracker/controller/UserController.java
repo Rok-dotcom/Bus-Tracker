@@ -3,6 +3,9 @@ package com.BornToCode.BusTracker.controller;
 import com.BornToCode.BusTracker.model.Users;
 import com.BornToCode.BusTracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,11 +17,30 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
     // user get register
     @PostMapping("/register")
     public Users register(@RequestBody Users user){
         System.out.println("I'm in controller register");
         return userService.register(user);
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestBody Users user) {
+        Authentication authentication =
+                new UsernamePasswordAuthenticationToken(
+                        user.getUserName(),
+                        user.getPassWord()
+                );
+        Authentication result = authenticationManager.authenticate(authentication);
+
+        if(result.isAuthenticated()){
+            return "Login successfully";
+        }
+
+        return "Login Failed";
     }
 
     // get the all users
