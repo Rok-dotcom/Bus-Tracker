@@ -15,6 +15,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import com.BornToCode.BusTracker.filter.JwtFilter;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 ///  This is one time setup so do this. 20 July 2026
 
@@ -24,6 +26,9 @@ public class SecurityConfig {
 
     @Autowired
     private UserDetailsService userDetailsService;
+
+    @Autowired
+    private JwtFilter jwtFilter;
 
     @Bean  // spring handles the object creation and all
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{ // SecurityFilterChain it contains rules of security int obj format
@@ -36,6 +41,7 @@ public class SecurityConfig {
                         .requestMatchers("/user/register","/user/login").permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
 
 //        http.formLogin(Customizer.withDefaults());

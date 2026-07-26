@@ -1,6 +1,7 @@
 package com.BornToCode.BusTracker.controller;
 
 import com.BornToCode.BusTracker.model.Users;
+import com.BornToCode.BusTracker.service.JwtService;
 import com.BornToCode.BusTracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,6 +21,10 @@ public class UserController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    @Autowired
+    private JwtService jwtService;
+
+
     // user get register
     @PostMapping("/register")
     public Users register(@RequestBody Users user){
@@ -37,10 +42,10 @@ public class UserController {
         Authentication result = authenticationManager.authenticate(authentication);
 
         if(result.isAuthenticated()){
-            return "Login successfully";
+            return jwtService.generateToken(user.getUserName());
         }
 
-        return "Login Failed";
+        throw new RuntimeException("Invalid username or password");
     }
 
     // get the all users
