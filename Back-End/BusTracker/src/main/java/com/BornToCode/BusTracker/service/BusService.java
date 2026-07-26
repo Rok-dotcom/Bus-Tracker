@@ -9,13 +9,18 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Service
 public class BusService {
 
     @Autowired
     private BusRepository busRepo;
 
-    LocalDateTime time = LocalDateTime.now(ZoneId.of("Asia/Kolkata"));
+    DateTimeFormatter formatter =
+            DateTimeFormatter.ofPattern("hh:mm a , dd MMM yyyy");
+
 
 
     // shows all Buses
@@ -25,21 +30,32 @@ public class BusService {
 
     // Adds bus
     public Bus addBus(Bus bus) {
-        bus.setPostTime(time+"");
+        String formattedTime = LocalDateTime.now().format(formatter);
+        bus.setPostTime(formattedTime);
         return busRepo.save(bus);
     }
 
     // updates bus
-    public void updateBusInfoById(Bus bus,int id) {
+    public Bus updateBusInfoById(Bus bus,int id) {
         Bus existingBus = busRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Bus not exist"));
+        if(!bus.getRoute().isEmpty()){
+            existingBus.setRoute(bus.getRoute());
+        }
+        if(!bus.getBusNo().isEmpty()){
+            existingBus.setBusNo(bus.getBusNo());
+        }
+        if(!bus.getCurrentlocation().isEmpty()){
+            existingBus.setCurrentlocation(bus.getCurrentlocation());
+        }
+        if(!bus.getMsg().isEmpty()){
+            existingBus.setMsg(bus.getMsg());
+        }
+        String formattedTime = LocalDateTime.now().format(formatter);
 
-        existingBus.setRoute(bus.getRoute());
-        existingBus.setBusNo(bus.getBusNo());
-        existingBus.setCurrentlocation(bus.getCurrentlocation());
-        existingBus.setMsg(bus.getMsg());
-        existingBus.setPostTime(time+"");
-        busRepo.save(existingBus);
+        existingBus.setPostTime(formattedTime);
+
+        return busRepo.save(existingBus);
     }
 
     // deletes bus
