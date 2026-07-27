@@ -44,6 +44,16 @@
   border-radius: 6px;
   transition: all 0.3s ease;
 }
+.logout-btn {
+  background-color: #5576c6;
+  border: none;
+}
+
+.logout-btn:hover {
+  background-color: #38bdf8;
+  color: #0f172a;
+  transform: translateY(-2px);
+}
 
 /* Hover Effect */
 .nav-links li a:hover {
