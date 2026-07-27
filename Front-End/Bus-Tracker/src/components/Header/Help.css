@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.help-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef4ff, #dbeafe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.help-card {
+  width: 100%;
+  max-width: 750px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.help-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.help-card h2 {
+  text-align: center;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+.help-card p {
+  text-align: center;
+  color: #555;
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.help-list {
+  list-style: none;
+}
+
+.help-list li {
+  background: #f8fafc;
+  border-left: 5px solid #2563eb;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  line-height: 1.7;
+  color: #444;
+}
+
+.help-note {
+  margin-top: 25px;
+  padding: 18px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .help-card {
+    padding: 25px;
+  }
+
+  .help-card h2 {
+    font-size: 26px;
+  }
+
+  .help-card p,
+  .help-list li {
+    font-size: 15px;
+  }
+}

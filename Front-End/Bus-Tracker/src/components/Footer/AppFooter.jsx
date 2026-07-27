@@ -1,4 +1,5 @@
 import styles from "./AppFooter.module.css";
+import { Link } from "react-router-dom";
 
 const AppFooter = () => {
   return (
@@ -18,10 +19,21 @@ const AppFooter = () => {
         <div className={styles.links}>
           <h3>Quick Links</h3>
           <ul>
-            <li>🏠 Home</li>
-            <li>❓ Help</li>
-            <li>💬 Feedback</li>
-            <li>💡 Suggestion</li>
+            <Link to="/">
+              <li>🏠 Home</li>
+            </Link>
+
+            <Link to="/userHelp">
+              <li>❓ Help</li>
+            </Link>
+
+            <Link to="/userFeedback">
+              <li>💬 Feedback</li>
+            </Link>
+
+            <Link to="/userSuggestion">
+              <li>💡 Suggestion</li>
+            </Link>
           </ul>
         </div>
 

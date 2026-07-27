@@ -17,10 +17,12 @@ function Waiting() {
   // Find all
   const handleOnClickSearchAll = async (e) => {
     console.log("search all btn clicked");
+
     if (!token) {
       navigate("/login");
       return;
     }
+
     e.preventDefault();
 
     try {
@@ -37,6 +39,13 @@ function Waiting() {
   const handleSubmit = async (e) => {
     console.log("button get clicked");
     e.preventDefault();
+
+    // empty value checking
+    if (from.trim() === "" || dest.trim() === "") {
+      alert("Please the enter value..");
+      return;
+    }
+
     const route = from + " " + dest;
 
     try {

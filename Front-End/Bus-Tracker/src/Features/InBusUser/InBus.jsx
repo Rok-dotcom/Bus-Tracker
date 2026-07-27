@@ -16,6 +16,17 @@ function InBus() {
 
   // anxios function
   const handleSubmit = async (e) => {
+    if (
+      From.trim() === "" ||
+      Dest.trim() === "" ||
+      busNo.trim() === "" ||
+      currentlocation.trim() === "" ||
+      msg.trim() === ""
+    ) {
+      alert("Please the value..");
+      return;
+    }
+
     e.preventDefault(); // it prevents the default reload page function
 
     const route = From + " " + Dest; // merging from and dest

@@ -41,6 +41,7 @@
 }
 
 .links li {
+  text-decoration: none;
   margin-bottom: 12px;
   color: #d1d5db;
   cursor: pointer;

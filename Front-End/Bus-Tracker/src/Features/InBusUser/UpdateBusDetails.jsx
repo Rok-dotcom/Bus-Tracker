@@ -31,6 +31,17 @@ const UpdateBusDetails = () => {
 
   // update button
   const handleOnClick = async (e) => {
+    // empty value checking
+    if (
+      route.trim() === "" ||
+      busNo.trim() === "" ||
+      currentlocation.trim() === "" ||
+      msg.trim() === ""
+    ) {
+      alert("Please the value..");
+      return;
+    }
+
     e.preventDefault();
 
     const updatedBus = {
