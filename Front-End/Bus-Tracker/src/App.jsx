@@ -1,23 +1,21 @@
 import { Routes, Route } from "react-router-dom";
-import AppHeader from "./components/AppHeader";
-import AppBody from "./components/AppBody";
-import InputForm from "./components/InputForm";
-import Waiting from "./components/Waiting";
-import InBus from "./components/InBus";
-import NewHeader from "./components/NewHeader";
-import UserGuide from "./components/UserGuide";
-import AppFooter from "./components/AppFooter";
-import BusInfo from "./components/BusInfo";
-import BusStatus from "./components/BusStatus";
-import UpdateBusDetails from "./components/UpdateBusDetails";
+import AppBody from "./components/Home/AppBody";
+import Waiting from "./Features/WaitingUser/Waiting";
+import InBus from "./Features/InBusUser/InBus";
+import NewHeader from "./components/Header/NewHeader";
+import UserGuide from "./components/Home/UserGuide";
+import BusInfo from "./Features/InBusUser/BusInfo";
+import BusStatus from "./Features/WaitingUser/BusStatus";
+import UpdateBusDetails from "./Features/InBusUser/UpdateBusDetails";
 import Feedback from "./components/Header/Feedback";
 import Suggestion from "./components/Header/Suggestion";
 import Help from "./components/Header/Help";
 import FeedbackSubmitted from "./components/Header/feedbackSubmitted";
 import SuggestionSubmitted from "./components/Header/SuggestionSubmitted";
-import Login from "./components/Login";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Register from "./components/Register";
+import Login from "./Features/auth/Login";
+import ProtectedRoute from "./components/common/ProtectedRoute";
+import Register from "./Features/auth/Register";
+import AppFooter from "./components/Footer/AppFooter";
 
 function Home() {
   return (
@@ -35,7 +33,6 @@ function App() {
       <NewHeader />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/InputForm" element={<InputForm />} />
         <Route path="/Waiting" element={<Waiting />} />
         <Route
           path="/InBus"

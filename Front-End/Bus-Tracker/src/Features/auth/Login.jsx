@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import api, { loginUser } from "../services/api";
+import api, { loginUser } from "../../services/api";
 import "./Login.css";
 import { useEffect } from "react";
 
@@ -40,7 +40,7 @@ const Login = () => {
 
       alert("Login Successful");
 
-      navigate("/");
+      navigate(-1);
     } catch (err) {
       console.log(err);
 

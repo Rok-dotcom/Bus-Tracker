@@ -1,9 +1,9 @@
 import "./BusStatus.css";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import { deleteBusById } from "../services/api";
+import { deleteBusById } from "../../services/api";
 
-import api from "../services/api";
+import api from "../../services/api";
 
 const BusStatus = () => {
   const location = useLocation();

@@ -1,6 +1,6 @@
 import "./NewHeader.css";
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../utils/auth";
+import { logout } from "../../utils/auth";
 
 function NewHeader() {
   const navigate = useNavigate();
@@ -33,17 +33,19 @@ function NewHeader() {
           <li>
             <a href="userSuggestion">Suggestion</a>
           </li>
-          <button className="logout-btn" onClick={handleRegister}>
-            Register
-          </button>
           {token ? (
             <button onClick={handleLogout} className="logout-btn">
               Logout
             </button>
           ) : (
-            <Link>
-              <button className="logout-btn">Login/SignIn</button>
-            </Link>
+            <>
+              <Link to="/login">
+                <button className="logout-btn">Login/SignIn</button>
+              </Link>
+              <button className="logout-btn" onClick={handleRegister}>
+                Register
+              </button>
+            </>
           )}
         </ul>
       </nav>

@@ -16,11 +16,10 @@ const BusInfo = () => {
   const navigate = useNavigate();
 
   const handleOnClick = () => {
-    console.log("edit btn get clicked");
-
     navigate("/UpdateBusDetails", {
       state: bus1,
     });
+
     // pass bus obj to updateBusDetails for previous values
   };
 

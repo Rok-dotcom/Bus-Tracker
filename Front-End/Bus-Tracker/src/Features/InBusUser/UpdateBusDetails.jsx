@@ -2,7 +2,7 @@ import "./UpdateBusDetails";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDebugValue, useState } from "react";
 import { Navigate } from "react-router-dom";
-import { editBus } from "../services/api";
+import { editBus } from "../../services/api";
 
 // here edit the css of input box
 
