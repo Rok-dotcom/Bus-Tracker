@@ -33,6 +33,11 @@ public class BusInfoController {
         return busService.searchRoute(keyword);
     }
 
+    @GetMapping("/suggestions")
+    public List<String> getSuggestions(@RequestParam String keyword) {
+        return busService.getSuggestions(keyword);
+    }
+
     // add the bus   -
     @PostMapping("/addBus")
     public Bus addBus(@RequestBody Bus bus){

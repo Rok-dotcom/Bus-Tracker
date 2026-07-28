@@ -69,4 +69,9 @@ public class BusService {
     public List<Bus> searchRoute(String keyword) {
         return busRepo.findByRoute(keyword);
     }
+
+    public List<String> getSuggestions(String keyword) {
+        return busRepo.searchBus(keyword);
+
+    }
 }

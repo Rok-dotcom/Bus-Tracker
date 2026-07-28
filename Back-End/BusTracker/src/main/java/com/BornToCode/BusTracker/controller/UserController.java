@@ -4,6 +4,7 @@ import com.BornToCode.BusTracker.model.Users;
 import com.BornToCode.BusTracker.service.JwtService;
 import com.BornToCode.BusTracker.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "http://localhost:5173")
 public class UserController {
 
     @Autowired
@@ -27,9 +29,9 @@ public class UserController {
 
     // user get register
     @PostMapping("/register")
-    public Users register(@RequestBody Users user){
-        System.out.println("I'm in controller register");
-        return userService.register(user);
+    public ResponseEntity<String> register(@RequestBody Users user) {
+        userService.register(user);
+        return ResponseEntity.ok("User registered successfully.");
     }
 
     @PostMapping("/login")
